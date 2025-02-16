@@ -3,6 +3,7 @@ import dash
 from dash import dcc, html
 import dash_bootstrap_components as dbc
 import plotly.graph_objs as go
+import os
 
 # Create Flask app
 app = Flask(__name__)
@@ -34,5 +35,6 @@ dash_app.layout = html.Div([
 def index():
     return render_template('index.html')
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))  # Get PORT from environment variable
+    app.run(host="0.0.0.0", port=port, debug=True)  # Bind to 0.0.0.0 for Render
