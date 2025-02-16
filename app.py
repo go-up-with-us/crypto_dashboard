@@ -7,6 +7,7 @@ import os
 
 # Create Flask app
 app = Flask(__name__)
+CORS(app)  # Enable CORS for frontend communication
 
 # Create Dash app
 dash_app = dash.Dash(__name__, server=app, url_base_pathname='/dashboard/')
